@@ -37,21 +37,33 @@
 
     <div class="row">
 
-      
+      <div class="col-3">
+        <div class="card">
+          <div class="card-header text-info font-weight-bold">Wins</div>
+          <h2 id="wins" class="text-warning"> 0 </h2>
+        </div>
+      </div>
 
-      <div class="col-12 col-sm-5 mx-auto">
+      <div class="col-3">
+        <div class="card">
+          <div class="card-header text-info font-weight-bold">losses</div>
+          <h2 id="losses" class="text-warning"> 0 </h2>
+        </div>
+      </div>
+
+      <div class="col-3">
         <div class="card ">
-          <div class="card-header">
-            Matching Your Total Score to
+          <div class="card-header font-weight-bold">
+            Matching to 
           </div>
           <h1 id="computer_score"> 0 </h1>
         </div>
       </div>
  
-      <div class="col-12 col-sm-5 mx-auto">
+      <div class="col-3">
         <div class="card">
           <div class="card-header bg-info text-white">
-            Your Total Score is
+            Your Score
           </div>
           <h1 id="userSum" class="text-info">0</h1>
         </div>   
@@ -108,19 +120,7 @@
 
       <div class="col-2"></div>
 
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">Wins</div>
-          <h2 id="wins" class="text-warning"> 0 </h2>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">losses</div>
-          <h2 id="losses" class="text-warning"> 0 </h2>
-        </div>
-      </div>
+      
 
       <div class="col-2"></div>
       
@@ -130,11 +130,6 @@
 
 
   <script type="text/javascript">
-
-    //当打开DOC，就产生一个随机数，并且把这个随机数写入ID computer_score; 给每个石头给出一个随机数在1-12之间
-    //如果和小于随机数那么，每个图片被按一次就与前面的数相加，和就写入HISTORY
-    //如果 和= 电脑随机数，那么就WINS ++, 重新开始游戏；
-    //如果和大于电脑随机数，那么LOSE ++， 重新开始游戏
 
     $(document).ready(function() {
 
