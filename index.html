@@ -138,65 +138,84 @@
 
     $(document).ready(function() {
 
-      // a random number will be on screen
-      var computer_score = Math.floor(Math.random() * 121) + 19;
-      $("#computer_score").text(computer_score);
+      var computer_score ;
+      var Amethyst;
+      var Angelite;
+      var Aura;
+      var Apatite;
 
-      // a random number will be given to each stone
-      var Amethyst = Math.floor(Math.random() * 13);
-      var Angelite = Math.floor(Math.random() * 13);  
-      var Aura = Math.floor(Math.random() * 13);
-      var Apatite = Math.floor(Math.random() * 13);
-      console.log(Amethyst);
-      console.log(Angelite);
-      console.log(Aura);
-      console.log(Apatite);
+      function getRandomNum () {
+        // a random number will be on screen
+        computer_score = Math.floor(Math.random() * 121) + 19;
+        $("#computer_score").text(computer_score);
+
+        // a random number will be given to each stone
+        Amethyst = Math.floor(Math.random() * 13 +1);
+        Angelite = Math.floor(Math.random() * 13 +1);  
+        Aura = Math.floor(Math.random() * 13 +1);
+        Apatite = Math.floor(Math.random() * 13 +1);
+        console.log(Amethyst);
+        console.log(Angelite);
+        console.log(Aura);
+        console.log(Apatite);
+      };
+
+      getRandomNum ();
 
       // Sum start as 0;
       var userSum = 0;
       var wins = 0;
-      var losses =0;
+      var losses = 0;
 
-      if ( userSum < computer_score ) {
+      function reset () {
+        getRandomNum ();
+        userSum = 0;
+        $("#userSum").text(userSum);
+      };
 
-        // when user click each stone, the stone's value will add to usersum
-        $(".Amethyst").on("click", function(){
-          userSum = Amethyst + userSum;
-          $("#userSum").text(userSum);
-        });
+      function winOrLose (){
+        if ( userSum  > computer_score ) {
+          losses ++;
+          $("#losses").text(losses);
+          alert("You lose!")
+          reset();
+        };
 
-        $(".Angelite").on("click", function(){
-          userSum = Angelite + userSum;
-          $("#userSum").text(userSum);
-        });
-
-        $(".Aura").on("click", function(){
-          userSum = Aura + userSum;
-          $("#userSum").text(userSum);
-        });
-
-        $(".Apatite").on("click", function(){
-          userSum = Apatite + userSum;
-          $("#userSum").text(userSum);
-        });
-
-      }
-
-      else if ( userSum == computer_score ) {
-        wins ++;
-        $("#wins").text(wins);
-      }
-
-      else {
-        losses ++;
-        $("#losses").text(losses);
-      }
-      
-
-    });
-    
+        if ( userSum == computer_score ) {
+          wins ++;
+          $("#wins").text(wins);
+          alert("You win!")
+          reset();
+        };
+      };
 
 
+      // when user click each stone, the stone's value will add to usersum
+      $(".Amethyst").on("click", function(){
+        userSum = Amethyst + userSum;
+        $("#userSum").text(userSum);
+        winOrLose ();
+      });
+
+      $(".Angelite").on("click", function(){
+        userSum = Angelite + userSum;
+        $("#userSum").text(userSum);
+        winOrLose ();
+      });
+
+      $(".Aura").on("click", function(){
+        userSum = Aura + userSum;
+        $("#userSum").text(userSum);
+        winOrLose ();
+      });
+
+      $(".Apatite").on("click", function(){
+        userSum = Apatite + userSum;
+        $("#userSum").text(userSum);
+        winOrLose ();
+      });     
+
+    });   
     
   </script>
 
