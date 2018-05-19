@@ -9,6 +9,9 @@
   <!-- BOOTSTRAP  -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 
 <body>
@@ -64,7 +67,7 @@
         <div class="card">
           <img class="card-img-top" src="assets/imgs/1.jpg">
           <div class="card-body">
-            <button class="btn btn-info">Amethyst</button>
+            <button class="btn btn-info Amethyst">Amethyst</button>
           </div>          
         </div>
       </div>
@@ -74,7 +77,7 @@
         <div class="card">
           <img class="card-img-top" src="assets/imgs/2.jpg">
           <div class="card-body">
-            <button class="btn btn-info">Angelite</button>
+            <button class="btn btn-info Angelite">Angelite</button>
           </div>          
         </div>
       </div>
@@ -84,7 +87,7 @@
         <div class="card">
           <img class="card-img-top" src="assets/imgs/3.jpg">
           <div class="card-body">
-            <button class="btn btn-info">Aura</button>
+            <button class="btn btn-info Aura">Aura</button>
           </div>          
         </div>
       </div>
@@ -94,14 +97,14 @@
         <div class="card">
           <img class="card-img-top" src="assets/imgs/4.jpg">
           <div class="card-body">
-            <div class="btn btn-info">Apatite</div>
+            <div class="btn btn-info Apatite">Apatite</div>
           </div>          
         </div>
       </div>
      
     </div> <!--row 2 end-->   
 
-    <div class="row bg-light mt-4 py-5">
+    <div class="row mt-4 py-5">
 
       <div class="col-2"></div>
 
@@ -127,6 +130,48 @@
 
 
   <script type="text/javascript">
+
+    //当打开DOC，就产生一个随机数，并且把这个随机数写入ID computer_score; 给每个石头给出一个随机数在1-12之间
+    //如果和小于随机数那么，每个图片被按一次就与前面的数相加，和就写入HISTORY
+    //如果 和= 电脑随机数，那么就WINS ++, 重新开始游戏；
+    //如果和大于电脑随机数，那么LOSE ++， 重新开始游戏
+
+    $(document).ready(function() {
+
+      // a random number will be on screen
+      var computer_score = Math.floor(Math.random() * 121);
+      $("#computer_score").text(computer_score);
+
+      // a random number will be given to each stone
+      var Amethyst = Math.floor(Math.random() * 13);
+      var Angelite = Math.floor(Math.random() * 13);
+      var Aura = Math.floor(Math.random() * 13);
+      var Apatite = Math.floor(Math.random() * 13);
+
+      // Sum start as 0;
+      var userSum = 0;
+
+      // when user click each stone, the stone's value will add to usersum
+      $(".Amethyst").on("click", function(){
+        userSum = Amethyst + userSum;
+      });
+
+      $(".Angelite").on("click", function(){
+        userSum = Angelite + userSum;
+      });
+
+      $(".Aura").on("click", function(){
+        userSum = Aura + userSum;
+      });
+
+      $(".Apatite").on("click", function(){
+        userSum = Apatite + userSum;
+      });
+
+
+
+    });
+    
 
 
     
