@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crystals Collector Game</title>
+  <!-- BOOTSTRAP  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <header class="jumbotron jumbotron-fluid text-center bg-info text-white"> 
+    <div class="container">
+      <h1>Crystals Collector!</h1>
+      
+      <p class="font-weight-light">
+        You will given a random number at the start of the game.<br>
+        There are four crystals below. <br>
+        By clicking on a crystal you will add a specific amount of points to your total score.<br>
+        You win the game by matching your total score to random number.<br>
+        You lose the game if your total score goes above the random number.<br>
+        The value of each crystal is hidden from you until you click on it.<br>
+        Each time when the game statrs, the game will change the values of each crystals!
+        </p>
+      
+    </div>
+  </header>
+
+  <section class="container text-center">
+
+    <div class="row">
+
+      <div class="col-2"></div>
+
+      <div class="col-3">
+        <div class="card ">
+          <div class="card-header">
+            Guesses left
+          </div>
+          <h1 id="left"> 9 </h1>
+        </div>
+      </div>
+
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            Your guesses so far
+          </div>
+          <h1 id="history" class="text-info"></h1>
+        </div>   
+      </div>
+
+      <div class="col-2"></div>
+    </div><!--row 1 end-->    
+
+    <div class="row bg-light mt-4 py-5">
+
+      <div class="col-2"></div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">Wins</div>
+          <h2 id="wins" class="text-warning"> 0 </h2>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">losses</div>
+          <h2 id="losses" class="text-warning"> 0 </h2>
+        </div>
+      </div>
+
+      <div class="col-2"></div>
+      
+    </div><!--row 2 end-->
+  
+  </section>
+
+
+  <script type="text/javascript">
+
+
+    
+  </script>
+
+</body>
+
+</html>
