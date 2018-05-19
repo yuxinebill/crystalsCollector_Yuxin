@@ -53,7 +53,7 @@
           <div class="card-header bg-info text-white">
             Your Total Score is
           </div>
-          <h1 id="history" class="text-info">0</h1>
+          <h1 id="userSum" class="text-info">0</h1>
         </div>   
       </div>
 
@@ -139,36 +139,59 @@
     $(document).ready(function() {
 
       // a random number will be on screen
-      var computer_score = Math.floor(Math.random() * 121);
+      var computer_score = Math.floor(Math.random() * 121) + 19;
       $("#computer_score").text(computer_score);
 
       // a random number will be given to each stone
       var Amethyst = Math.floor(Math.random() * 13);
-      var Angelite = Math.floor(Math.random() * 13);
+      var Angelite = Math.floor(Math.random() * 13);  
       var Aura = Math.floor(Math.random() * 13);
       var Apatite = Math.floor(Math.random() * 13);
+      console.log(Amethyst);
+      console.log(Angelite);
+      console.log(Aura);
+      console.log(Apatite);
 
       // Sum start as 0;
       var userSum = 0;
+      var wins = 0;
+      var losses =0;
 
-      // when user click each stone, the stone's value will add to usersum
-      $(".Amethyst").on("click", function(){
-        userSum = Amethyst + userSum;
-      });
+      if ( userSum < computer_score ) {
 
-      $(".Angelite").on("click", function(){
-        userSum = Angelite + userSum;
-      });
+        // when user click each stone, the stone's value will add to usersum
+        $(".Amethyst").on("click", function(){
+          userSum = Amethyst + userSum;
+          $("#userSum").text(userSum);
+        });
 
-      $(".Aura").on("click", function(){
-        userSum = Aura + userSum;
-      });
+        $(".Angelite").on("click", function(){
+          userSum = Angelite + userSum;
+          $("#userSum").text(userSum);
+        });
 
-      $(".Apatite").on("click", function(){
-        userSum = Apatite + userSum;
-      });
+        $(".Aura").on("click", function(){
+          userSum = Aura + userSum;
+          $("#userSum").text(userSum);
+        });
 
+        $(".Apatite").on("click", function(){
+          userSum = Apatite + userSum;
+          $("#userSum").text(userSum);
+        });
 
+      }
+
+      else if ( userSum == computer_score ) {
+        wins ++;
+        $("#wins").text(wins);
+      }
+
+      else {
+        losses ++;
+        $("#losses").text(losses);
+      }
+      
 
     });
     
